@@ -40,7 +40,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text-primary);disp
 .s-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--ios),var(--overall));display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:#fff;margin-top:auto;cursor:pointer}
 
 /* MAIN */
-.main{margin-left:var(--sidebar-w);flex:1;display:flex;flex-direction:column;min-height:100vh}
+.main{margin-left:var(--sidebar-w);flex:1;display:flex;flex-direction:column;min-height:100vh;overflow-x:hidden;min-width:0}
 
 /* TOPBAR */
 .topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 20px;height:50px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:50}
@@ -59,9 +59,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text-primary);disp
 body.light .range-select-wrap{background:#f0eeea;border-color:rgba(0,0,0,0.1)}
 body.light .range-select{color:#1a1a18}
 .f-btn.active{color:#fff;font-weight:600}
-.f-btn.plat-overall.active{background:var(--overall)}
-.f-btn.plat-ios.active{background:var(--ios)}
-.f-btn.plat-android.active{background:var(--android)}
+.f-btn.plat-overall.active,.f-btn.plat-ios.active,.f-btn.plat-android.active{background:var(--surface3);color:var(--text-primary);border:1px solid var(--border2)}
 .f-btn.geo.active,.f-btn.weeks.active{background:var(--surface3);color:var(--text-primary);border:1px solid var(--border2)}
 
 .topbar-right{margin-left:auto;display:flex;align-items:center;gap:8px}
@@ -77,7 +75,7 @@ body.light .range-select{color:#1a1a18}
 .cat-count{background:var(--surface3);color:var(--text-muted);font-size:10px;padding:1px 5px;border-radius:10px;margin-left:4px}
 
 /* CONTENT */
-.content{padding:18px 20px;display:flex;flex-direction:column;gap:16px}
+.content{padding:18px 20px;display:flex;flex-direction:column;gap:16px;overflow:hidden}
 
 /* CONTEXT ROW */
 .ctx-row{display:flex;gap:10px;flex-wrap:wrap}
@@ -87,9 +85,9 @@ body.light .range-select{color:#1a1a18}
 .ctx-val{font-weight:500;color:var(--text-primary)}
 
 /* METRIC GRID — 2 per row for clear data labels */
-.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;min-width:0}
 
-.m-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;position:relative;overflow:hidden;cursor:default;transition:border-color .2s}
+.m-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;position:relative;overflow:hidden;cursor:default;transition:border-color .2s;min-width:0}
 .m-card:hover{border-color:var(--border2)}
 .m-card-accent{position:absolute;top:0;left:0;width:3px;bottom:0;border-radius:10px 0 0 10px}
 .m-card-label{font-size:10.5px;color:var(--text-muted);margin-bottom:8px;line-height:1.3;padding-right:4px}
@@ -98,7 +96,7 @@ body.light .range-select{color:#1a1a18}
 .delta-up{color:#22c55e;display:flex;align-items:center;gap:2px}
 .delta-down{color:#ef4444;display:flex;align-items:center;gap:2px}
 .delta-flat{color:var(--text-muted)}
-.m-card-spark{height:120px;margin-top:10px}
+.m-card-spark{height:120px;margin-top:10px;position:relative;width:100%}
 .m-card-trend{font-size:10px;color:var(--text-muted)}
 .m-card-compare{margin-top:8px;padding-top:8px;border-top:1px solid var(--border);display:flex;gap:10px}
 .mc-plat{display:flex;align-items:center;gap:4px;font-size:10.5px}
@@ -168,20 +166,20 @@ tbody td.row-label{color:var(--text-primary);font-family:var(--font);font-size:1
 .dd-geo-header{display:flex;align-items:center;gap:10px;padding:8px 0 2px}
 .dd-geo-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;min-width:70px}
 .dd-geo-sep{flex:1;height:1px;background:var(--border)}
-.dd-plat-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.dd-plat-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;min-width:0}
 
 /* Platform column header */
 .dd-plat-header{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:4px;padding-left:0}
 .dd-plat-col-label{text-align:center;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;padding:6px 8px;border-radius:6px}
 
-.nine-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s}
+.nine-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color .2s;min-width:0}
 .nine-card:hover{border-color:var(--border2)}
 .nine-card-top{height:3px}
 .nine-card-body{padding:12px 14px 10px}
 .nine-card-label{font-size:10px;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
 .nine-card-val{font-size:22px;font-weight:600;letter-spacing:-.5px;font-family:var(--mono);line-height:1.1}
 .nine-card-footer{display:flex;align-items:center;gap:4px;margin-top:4px;font-size:10px}
-.nine-chart-wrap{padding:0 12px 12px;height:180px;position:relative}
+.nine-chart-wrap{padding:0 12px 12px;height:180px;position:relative;width:100%;box-sizing:border-box}
 
 .dd-selected-info{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .dd-sel-metric{font-size:15px;font-weight:600}
@@ -260,11 +258,14 @@ body.light .view-btn.active{background:#e8e5e0;color:#1a1a18}
     </div>
 
     <!-- Geography -->
-    <div class="filter-group" id="geoGroup">
-      <span class="filter-label">Geo</span>
-      <div class="f-btn geo active" data-geo="overall">Overall</div>
-      <div class="f-btn geo" data-geo="us">US</div>
-      <div class="f-btn geo" data-geo="uk">UK</div>
+    <div class="range-select-wrap" id="geoGroup">
+      <span class="filter-label" style="padding:0 6px 0 10px">Geo</span>
+      <select class="range-select" id="geoSelect">
+        <option value="overall" selected>Overall</option>
+        <option value="us">US</option>
+        <option value="uk">UK</option>
+      </select>
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--text-muted)"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
 
     <!-- Range -->
@@ -451,14 +452,14 @@ function safeFmt(fmtFn){
 
 const CATS = [
   {id:'trials',    label:'Trials',          color:'#4f8ef7'},
-  {id:'retention', label:'Retention',       color:'#34c98e'},
+  {id:'retention', label:'Retention',       color:'#818cf8'},
   {id:'onboarding',label:'Onboarding Funnel',color:'#a78bfa'},
-  {id:'activation',label:'Activation',      color:'#f5a623'},
+  {id:'activation',label:'Activation',      color:'#60a5fa'},
   {id:'lessons',   label:'Lesson Engagement',color:'#2dd4bf'},
   {id:'quality',   label:'User Quality',    color:'#f472b6'},
-  {id:'notifs',    label:'Notifications',   color:'#f5a623'},
+  {id:'notifs',    label:'Notifications',   color:'#c084fc'},
   {id:'ultra',     label:'Ultra',           color:'#a78bfa'},
-  {id:'leagues',   label:'Leagues',         color:'#f25757'},
+  {id:'leagues',   label:'Leagues',         color:'#22d3ee'},
 ];
 
 function mkSeries(base, variance){
@@ -2279,14 +2280,21 @@ function renderTableSection(metrics){
       const isLast = i===allVals.length-1;
       const pv = i>0 ? allVals[i-1] : null;
       let badgeHtml = '';
+      let titleAttr = '';
       if(pv!==null&&pv!==undefined&&!isNaN(pv)){
         const d = v-pv;
         const isGood=m.higherGood?d>=0:d<=0;
         const cls=d===0?'flat':(isGood?'up':'down');
         const dStr=(d>=0?'+':'')+m.fmt(d);
-        badgeHtml = `<span class="badge ${cls}" style="margin-top:2px;display:inline-flex">${dStr}</span>`;
+        if(isLast){
+          // Show badge inline only for latest column
+          badgeHtml = `<span class="badge ${cls}" style="margin-top:2px;display:inline-flex">${dStr}</span>`;
+        } else {
+          // Store as tooltip title for hover
+          titleAttr = `title="${dStr} ${isDaily?'DoD':'WoW'}"`;
+        }
       }
-      return `<td style="text-align:center;${isLast?'background:rgba(79,142,247,0.05);':''}">
+      return `<td ${titleAttr} style="text-align:center;cursor:${titleAttr?'help':'default'};${isLast?'background:rgba(79,142,247,0.05);':''}">
         <div style="font-size:12px;${isLast?'color:var(--ios);font-weight:600':'color:var(--text-primary)'}">${m.fmt(v)}</div>
         ${badgeHtml}
       </td>`;
@@ -2325,7 +2333,7 @@ function renderContent(){
 
 // ── DEEP DIVE ─────────────────────────────────────────────────────────────────
 let deepDiveCharts = {};
-let ddSelectedMetric = null;
+let ddSelectedMetric = null; // will be set to d0_trial on first open
 
 // All metrics flat list
 const ALL_METRICS = Object.entries(DATA_RAW).flatMap(([catId, metrics]) =>
@@ -2344,7 +2352,7 @@ const NINE_COMBOS = [
 ];
 const COL_LABELS = ['Overall', 'US', 'UK'];
 const ROW_LABELS = ['Overall', 'iOS', 'Android'];
-const ROW_COLORS = [PLAT_COLOR.overall, PLAT_COLOR.ios, PLAT_COLOR.android];
+const ROW_COLORS = ['#2dd4bf', PLAT_COLOR.ios, PLAT_COLOR.android];
 
 function destroyDeepDiveCharts(){
   Object.values(deepDiveCharts).forEach(c=>{try{c.destroy()}catch(e){}});
@@ -2367,7 +2375,7 @@ const GEO_ORDER   = ['overall','us','uk'];
 const GEO_LABELS  = ['Overall','US','UK'];
 const PLAT_ORDER  = ['overall','ios','android'];
 const PLAT_LABELS = ['Overall','iOS','Android'];
-const PLAT_COLORS_DD = [PLAT_COLOR.overall, PLAT_COLOR.ios, PLAT_COLOR.android];
+const PLAT_COLORS_DD = ['#2dd4bf', PLAT_COLOR.ios, PLAT_COLOR.android]; // Overall=teal, iOS=blue, Android=purple
 
 function renderNineGrid(metric){
   const catMeta = CATS.find(c=>c.id===metric.catId);
@@ -2464,6 +2472,10 @@ function buildDeepDiveCharts(metric){
 }
 
 function renderDeepDive(){
+  // Auto-select first metric if none chosen
+  if(!ddSelectedMetric){
+    ddSelectedMetric = ALL_METRICS.find(m=>m.id==='d0_trial') || ALL_METRICS[0];
+  }
   const el = document.getElementById('deepDiveContent');
   const catMeta = ddSelectedMetric ? CATS.find(c=>c.id===ddSelectedMetric.catId) : null;
   const badgeHtml = ddSelectedMetric
@@ -2491,10 +2503,10 @@ function renderDeepDive(){
     ddSelectedMetric = metric;
     destroyDeepDiveCharts();
     renderDeepDive(); // re-render whole view to update badge
-    setTimeout(()=>buildDeepDiveCharts(ddSelectedMetric), 50);
+    setTimeout(()=>buildDeepDiveCharts(ddSelectedMetric), 120);
   });
 
-  if(ddSelectedMetric) setTimeout(()=>buildDeepDiveCharts(ddSelectedMetric), 50);
+  if(ddSelectedMetric) setTimeout(()=>buildDeepDiveCharts(ddSelectedMetric), 120);
 }
 
 // ── VIEW SWITCHING ─────────────────────────────────────────────────────────────
@@ -2513,7 +2525,11 @@ function switchView(view){
   document.getElementById('geoGroup').style.opacity = isOverview?'1':'0.3';
   document.getElementById('geoGroup').style.pointerEvents = isOverview?'auto':'none';
   // weeks filter stays active in both views
-  if(!isOverview) renderDeepDive();
+  if(!isOverview){
+    renderDeepDive();
+    // charts need DOM to settle after renderDeepDive innerHTML write
+    if(ddSelectedMetric) setTimeout(()=>{destroyDeepDiveCharts();buildDeepDiveCharts(ddSelectedMetric);}, 150);
+  }
 }
 
 document.getElementById('viewSwitcher').addEventListener('click',e=>{
@@ -2531,12 +2547,8 @@ document.getElementById('platGroup').addEventListener('click',e=>{
   renderContent();
 });
 
-document.getElementById('geoGroup').addEventListener('click',e=>{
-  const b=e.target.closest('.f-btn[data-geo]');
-  if(!b)return;
-  document.querySelectorAll('#geoGroup .f-btn').forEach(x=>x.classList.remove('active'));
-  b.classList.add('active');
-  state.geo=b.dataset.geo;
+document.getElementById('geoSelect').addEventListener('change',e=>{
+  state.geo = e.target.value;
   renderContent();
 });
 
